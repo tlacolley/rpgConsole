@@ -10,10 +10,10 @@ class Item(object):
         pass
 
 class Spell(Item):
-    def __init__(self, name_char = 'Sans Nom', mana_cost = 0, damages = 0):
-        Item.__init__(self, name_char)
+    def __init__(self, name_char, weight, mana_cost, damage ):
+        Item.__init__(self, name_char, weight )
         self.cost = mana_cost
-        self.damages = damages
+        self.damage = damage
 
     def damage(self):
         pass
@@ -25,5 +25,6 @@ class Spell(Item):
         pass
 
 class Apple(Item):
-    def __init__(self, name_char = 'Sans Nom', nb_health = 10):
-        Item.__init__(self, name_char)
+    def __init__(self, weight, gain ):
+        Item.__init__(self, "Apple", weight)
+        self.gain = gain

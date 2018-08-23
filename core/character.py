@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-class Chara(object):
-    def __init__(self,nb_health = 20 ,name_char = 'Sans Nom',mana = 10, xp = 0 , power = 5,inventory = []  ):
-        self.health = nb_health
+class Character(object):
+    def __init__(self, name_char = 'Sans Nom', health = 20, mana = 10,  power = 5, xp = 0, inventory = []  ):
         self.name = name_char
+        self.health = health
         self.mana = mana
-        self.xp = xp
         self.power = power
+        self.xp = xp
         self.inventory = inventory
 
     # def display_chara(self):
@@ -23,12 +23,14 @@ class Chara(object):
     #
     #     if self.health == 0 :
     #         self.Death()
+
     def move(self):
         pass
 
     def attack(self):
         pass
         # print(self.name+' lance une attaque basique.')
+
     def pick(self):
         pass
 
@@ -38,19 +40,19 @@ class Chara(object):
     def use(self):
         pass
 
-class Wizard(Chara):
-    def __init__(self,nb_health = 20 ,name_char = 'Sans Nom',mana = 20, xp = 0 , power = 5,inventory = [], spell = []):
-        Chara.__init__(self, name_char)
 
-
-    def use_spell(self):
+class Wizard(Character):
+    def __init__(self, name_char):
+        Character.__init__(self, name_char, 100, 100, 50, 0, [])
+        self.spells = []
+    def use_spells(self):
         pass
         # print(self.name+ ' fait de la magie.')
         # self.magic = self.magic -1
         # print('Il rest '+str(self.magic)+' points de magie a '+self.name+'.')
 
 
-class Warrior(Chara):
-        def __init__(self,nb_health = 20 ,name_char = 'Sans Nom',mana = 10, xp = 0 , power = 5,inventory = [], armor = 10):
-            Chara.__init__(self, name_char)
+class Warrior(Character):
+        def __init__(self, name_char, armor):
+            Character.__init__(self, name_char, 200, 0, 300, 0, [])
             self.armor = armor
