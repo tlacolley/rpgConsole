@@ -27,15 +27,16 @@ class Character(object):
     def move(self):
         pass
 
-    def attack(self):
-        pass
+    def attack(self, enemy):
+        self.xp += 1
+        enemy.health -= self.power
         # print(self.name+' lance une attaque basique.')
 
-    def pick(self):
-        pass
+    def pick(self, name_item):
+        self = inventory.append(name_item)
 
     def throw(self):
-        pass
+        self = inventory.pop(name_item)
 
     def use(self):
         pass

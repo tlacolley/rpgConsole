@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 
 class Item(object):
-    def __init__(self, name_char = 'Sans Nom', weight = 0):
-        self.name = name_char
+    def __init__(self, name_item = 'Sans Nom', weight = 0):
+        self.name = name_item
         self.weight = weight
 
     def use(self):
         pass
 
 class Spell(Item):
-    def __init__(self, name_char, weight, mana_cost, damage ):
-        Item.__init__(self, name_char, weight )
+    def __init__(self, name_item, weight, mana_cost, damage ):
+        Item.__init__(self, name_item, weight )
         self.cost = mana_cost
         self.damage = damage
 
