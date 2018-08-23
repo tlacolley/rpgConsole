@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-class Character(object):
+class Chara(object):
     def __init__(self,nb_health = 20 ,name_char = 'Sans Nom',mana = 10, xp = 0 , power = 5,inventory = []  ):
         self.health = nb_health
         self.name = name_char
@@ -38,9 +38,9 @@ class Character(object):
     def use(self):
         pass
 
-class Wizard(Character):
+class Wizard(Chara):
     def __init__(self,nb_health = 20 ,name_char = 'Sans Nom',mana = 20, xp = 0 , power = 5,inventory = [], spell = []):
-        Character.__init__(self, name_char)
+        Chara.__init__(self, name_char)
 
 
     def use_spell(self):
@@ -50,7 +50,7 @@ class Wizard(Character):
         # print('Il rest '+str(self.magic)+' points de magie a '+self.name+'.')
 
 
-class Warrior(Character):
+class Warrior(Chara):
         def __init__(self,nb_health = 20 ,name_char = 'Sans Nom',mana = 10, xp = 0 , power = 5,inventory = [], armor = 10):
-            Character.__init__(self, name_char)
+            Chara.__init__(self, name_char)
             self.armor = armor
