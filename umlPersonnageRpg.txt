@@ -1,0 +1,31 @@
+	-Personnage-
+	 +nom/STRING
+	 +vie/INT
+	 +mama/INT
+	 (+exp)/INT
+	 (+force)/INT
+	 +inventaire/LIST
+	---------------------
+	 -deplacer/(x,y)
+	 -attaquer/(personnage)
+	 (-ramasser)/(objet)
+	 (-jeter)/(objet)
+	 (-utiliser)/(objet)
+=============|======================|======================
+	|-Guerrier-|		|-Mage-|
+	+armure/INT		+sorts/LIST
+	---------------		--------------
+				-utiliser/(sorts,personnage)
+
+
+=============================================================
+
+	-Objet-
+	+nom/STRING
+	+poids/INT
+	---------
+	-utiliser/(objet)
+============|=======================|======================
+	|-Sorts-|		|-pomme -|
+	+cout/INT			 +vie/INT
+	+degat/INT
