@@ -16,3 +16,20 @@ class Board(object):
         character.x = x
         character.y = y
         self.grid[x][y].append(character)
+
+    def display(self):
+        map = ""
+        # print map
+        for line in self.grid:
+            row = ""
+            for cell in line:
+                if not cell:
+                    row += "-"
+                else:
+                    row += "X"
+            row += "\n"
+            map += row
+        return map
+        # print "lop"
+        # print map
+        # print "plop"
