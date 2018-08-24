@@ -14,7 +14,7 @@ class TestCharacter(unittest.TestCase):
         self.assertEqual(c.power, 30)
         self.assertEqual(c.xp, 40)
         self.assertListEqual(c.inventory, [])
-    
+
     def testWizardConstructor(self):
         w = Wizard("Plop")
         self.assertEqual(w.name, "Plop")
@@ -94,7 +94,7 @@ class TestCharacter(unittest.TestCase):
         self.assertTrue(a not in w.inventory)
 
         #A apple use will add its gain to the character health
-        self.assertEquals(w.health, yup_health_before_apple_use + a.gain)        
+        self.assertEquals(w.health, yup_health_before_apple_use + a.gain)
 
         #A spell use will decrease the amount of mana of the character if > 0
         yup_mana_before_spell_use = w.mana
@@ -102,7 +102,7 @@ class TestCharacter(unittest.TestCase):
         w.pick(s)
         w.use(s)
 
-        self.assertEquals(w.mana, yup_mana_before_spell_use) # because a Warrior has no mana 
+        self.assertEquals(w.mana, yup_mana_before_spell_use) # because a Warrior has no mana
 
 
         w = Wizard("Plop")
@@ -111,23 +111,23 @@ class TestCharacter(unittest.TestCase):
         w.pick(s)
         w.use(s)
         self.assertEquals(w.mana, plop_mana_before_spell_use - s.cost)
-    
+
 
     def testWizardInvocation(self):
         w = Wizard("Plop")
         enemy = Warrior("Yup", 50)
-        
+
         yup_health_before_apple_use = enemy.health
         plop_mana_before_spell_use = w.mana
 
         s = Spell("Fire", 1, 10, 30)
-        
+
         with self.assertRaises(Exception):
             w.invoke(s, enemy)
-        
+
         w.pick(s)
         w.invoke(s, enemy)
-        
+
         self.assertTrue(s not in w.inventory)
         self.assertEquals(w.mana, plop_mana_before_spell_use - s.cost)
         self.assertEquals(enemy.health, yup_health_before_apple_use - s.damage)

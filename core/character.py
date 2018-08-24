@@ -32,26 +32,27 @@ class Character(object):
         enemy.health -= self.power
         # print(self.name+' lance une attaque basique.')
 
-    def pick(self, name_item):
-        self = inventory.append(name_item)
+    def pick(self, item):
+        self.inventory = self.inventory + [item]
 
-    def throw(self):
-        self = inventory.pop(name_item)
+    def drop(self, item):
+        self.inventory.remove(item)
 
-    def use(self):
-        pass
-
+    def use(self,item):
+        if item in self.inventory:
+            item.use(self)
+            self.drop(item)
+        else:
+            raise
 
 class Wizard(Character):
     def __init__(self, name_char):
         Character.__init__(self, name_char, 100, 100, 50, 0, [])
         self.spells = []
-    def use_spells(self):
-        pass
-        # print(self.name+ ' fait de la magie.')
-        # self.magic = self.magic -1
-        # print('Il rest '+str(self.magic)+' points de magie a '+self.name+'.')
 
+    def invoke(self,spell,enemy):
+        self.use(spell)
+        enemy.health -= spell.damage
 
 class Warrior(Character):
         def __init__(self, name_char, armor):
