@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 
 class Character(object):
-    def __init__(self, name_char = 'Sans Nom', health = 20, mana = 10,  power = 5, xp = 0, inventory = []  ):
+    def __init__(self, name_char = 'Sans Nom', health = 20, mana = 10,  power = 5, xp = 0, inventory = [],  ):
         self.name = name_char
         self.health = health
         self.mana = mana
         self.power = power
         self.xp = xp
         self.inventory = inventory
-
+        self.x = None
+        self.y = None
     # def display_chara(self):
     #     print('Il reste '+str(self.health)+' points de vie a '+self.name)
     #
@@ -26,6 +27,8 @@ class Character(object):
 
     def move(self):
         pass
+
+
 
     def attack(self, enemy):
         self.xp += 1

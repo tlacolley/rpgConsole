@@ -14,7 +14,7 @@ class TestBoard(unittest.TestCase):
             for col in range(50):
                 cell = board.grid[lig][col]
                 self.assertListEqual(cell, [])
-    
+
     def testCharacterMove(self):
         board = Board(50, 50)
         w = Wizard("Plop")
